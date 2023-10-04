@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.1](https://www.github.com/bihealth/dotty/compare/v0.1.0...v0.1.1) (2023-10-04)
+
+
+### Bug Fixes
+
+* build docker image in release-please ([#5](https://www.github.com/bihealth/dotty/issues/5)) ([213c1c6](https://www.github.com/bihealth/dotty/commit/213c1c6ea3b3601cf7aceca33d910d47595c473b))
+
 ## 0.1.0 (2023-10-04)
 
 
