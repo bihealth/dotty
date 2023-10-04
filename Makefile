@@ -1,4 +1,4 @@
-DIRS_PYTHON := dotty  # tests
+DIRS_PYTHON := dotty stubs tests
 
 .PHONY: help
 help:
@@ -51,14 +51,14 @@ flake8:
 
 .PHONY: lint-mypy
 lint-mypy:
-	pipenv run mypy $(DIRS_PYTHON)
+	MYPYPATH=$(PWD)/stubs pipenv run mypy $(DIRS_PYTHON)
 
 .PHONY: test
 test:
 	pipenv run pytest \
 		--cov-report term-missing \
 		--cov-report lcov \
-		--cov=app \
+		--cov=dotty \
 		tests/
 
 .PHONY: ci

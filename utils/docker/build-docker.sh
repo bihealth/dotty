@@ -12,7 +12,7 @@ DOCKER_VERSION=$(echo $GIT_TAG | sed -e 's/^v//')
 ORG=bihealth
 REPO=dotty
 
-git describe --tags --dirty >VERSION
+(git describe --tags --dirty || echo 0.0.0) >VERSION
 
 sudo docker build . \
     --build-arg version_file=VERSION \

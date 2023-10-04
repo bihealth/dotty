@@ -6,14 +6,15 @@ name = "pypi"
 [packages]
 cdot = "*"
 fastapi = "*"
+hgvs = "*"
 
 [dev-packages]
 black = "*"
 flake8 = "*"
+isort = "*"
 mypy = "*"
 pytest = "*"
 pytest-coverage = "*"
-isort = "*"
 
 [requires]
 python_version = "3.10"

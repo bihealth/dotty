@@ -1,0 +1,2 @@
+class SeqFetcher(object):
+    pass

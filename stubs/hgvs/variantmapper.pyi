@@ -1,0 +1,2 @@
+class VariantMapper:
+    pass
