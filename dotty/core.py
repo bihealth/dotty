@@ -6,15 +6,27 @@ import time
 from datetime import timedelta
 from unittest import mock
 
+import bioutils.assemblies
 import hgvs.parser
 from cdot.hgvs.dataproviders import JSONDataProvider
 from hgvs.assemblymapper import AssemblyMapper
-from hgvs.extras.babelfish import Babelfish
+from hgvs.dataproviders.interface import Interface
+from hgvs.extras import babelfish
 
 from dotty.config import settings
 
 #: Logger used in this module.
 _logger = logging.getLogger(__name__)
+
+
+class Babelfish(babelfish.Babelfish):
+    """Custom Babelfish that also knows about GRCh37."""
+
+    def __init__(self, hdp: Interface, assembly_name: str):
+        super().__init__(hdp, assembly_name)
+        for assembly_name in ("GRCh37", "GRCh38"):
+            for sr in bioutils.assemblies.get_assembly(assembly_name)["sequences"]:
+                self.ac_to_chr_name_map[sr["refseq_ac"]] = sr["name"]
 
 
 class Assembly(enum.Enum):
@@ -76,11 +88,11 @@ class Driver:
                     replace_reference=settings.HAVE_SEQREPO,
                     prevalidation_level=None,
                 )
-                for assembly in self.assembly_file_names
+                for assembly in Assembly
             }
             self.babelfishes = {
                 assembly: Babelfish(hdp=self.data_providers[assembly], assembly_name=assembly.value)
-                for assembly in self.assembly_file_names
+                for assembly in Assembly
             }
         elapsed = timedelta(seconds=time.time() - start_time)
         _logger.info("... loaded in %s", elapsed)

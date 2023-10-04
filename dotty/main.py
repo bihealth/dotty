@@ -1,6 +1,7 @@
 import logging
 from contextlib import asynccontextmanager
 
+import bioutils.assemblies
 import pydantic
 from fastapi import FastAPI, HTTPException
 
@@ -11,11 +12,20 @@ logging.basicConfig(level=logging.DEBUG)
 
 _logger = logging.getLogger(__name__)
 
-driver: Driver
+#: The global Driver instance.
+driver: Driver = None  # type: ignore[assignment]
+
+#: Contig names per assembly.
+contig_names: dict[Assembly, set[str]] = {
+    assembly: set(
+        sr["refseq_ac"] for sr in bioutils.assemblies.get_assembly(assembly.value)["sequences"]
+    )
+    for assembly in Assembly
+}
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(app: FastAPI):  # pragma: no cover
     global driver
     _ = app
     driver = Driver(cdot_dir=settings.DATA_DIR)
@@ -33,6 +43,8 @@ app = FastAPI(
 class Spdi(pydantic.BaseModel):
     """SPDI representation of a variant."""
 
+    #: Assembly name.
+    assembly: str
     #: Reference sequence ID.
     contig: str
     #: 1-based position.
@@ -50,8 +62,8 @@ class Result(pydantic.BaseModel):
     spdi: Spdi
 
 
-@app.get("/api/v1/resolve", response_model=Result)
-async def resolve(q: str, assembly: Assembly = Assembly.GRCH38) -> Result:
+@app.get("/api/v1/to-spdi", response_model=Result)
+async def to_spdi(q: str, assembly: Assembly = Assembly.GRCH38) -> Result:
     """Resolve the given HGVS variant to SPDI representation."""
     parsed_var = driver.parser.parse(q)
 
@@ -61,13 +73,16 @@ async def resolve(q: str, assembly: Assembly = Assembly.GRCH38) -> Result:
         var_g = driver.assembly_mappers[assembly].n_to_g(parsed_var)
     elif parsed_var.type == "g":
         var_g = parsed_var
-    else:
+        if var_g.ac in contig_names[Assembly.GRCH37]:
+            assembly = Assembly.GRCH37
+    else:  # pragma: no cover
         raise HTTPException(status_code=400, detail="Invalid variant type")
 
     contig, pos, reference, alternative, type_ = driver.babelfishes[assembly].hgvs_to_vcf(var_g)
 
     return Result(
         spdi=Spdi(
+            assembly=assembly.value,
             contig=contig,
             pos=pos,
             reference_deleted=reference,

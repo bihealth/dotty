@@ -17,6 +17,7 @@ isort = "*"
 mypy = "*"
 pytest = "*"
 pytest-coverage = "*"
+httpx = "*"
 
 [requires]
 python_version = "3.10"
