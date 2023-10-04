@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0 (2023-10-04)
+
+
+### Features
+
+* adding driver clas to wrap with cdot and hgvs ([#1](https://www.github.com/bihealth/dotty/issues/1)) ([4ce6d19](https://www.github.com/bihealth/dotty/commit/4ce6d19a34795faed9bb1351eb23582d8424cb49))
+* implementing web service for resolving to SPDI ([#4](https://www.github.com/bihealth/dotty/issues/4)) ([8e76ced](https://www.github.com/bihealth/dotty/commit/8e76ced87fb12cc836edb3a58cc3101a26756813))
+
 ## [0.5.0](https://www.github.com/bihealth/cada-prio/compare/v0.4.0...v0.5.0) (2023-09-18)
 
 
