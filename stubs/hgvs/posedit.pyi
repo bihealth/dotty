@@ -1,0 +1,2 @@
+class PosEdit:
+    pass

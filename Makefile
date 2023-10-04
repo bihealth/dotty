@@ -69,4 +69,5 @@ ci: \
 
 .PHONY: serve
 serve:
+	DATA_DIR=$(PWD)/tests/data \
 	pipenv run uvicorn dotty.main:app --host 0.0.0.0 --port 8080 --reload --workers 8

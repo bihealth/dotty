@@ -1,2 +1,2 @@
 class SequenceVariant:
-    pass
+    type: str
