@@ -3,3 +3,6 @@ class HGVSError(Exception):
 
 class HGVSDataNotAvailableError(HGVSError):
     pass
+
+class HGVSParseError(HGVSError):
+    pass

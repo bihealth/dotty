@@ -8,10 +8,12 @@ from unittest import mock
 
 import bioutils.assemblies
 import hgvs.parser
+from bioutils.sequences import reverse_complement
 from cdot.hgvs.dataproviders import JSONDataProvider
 from hgvs.assemblymapper import AssemblyMapper
 from hgvs.dataproviders.interface import Interface
 from hgvs.extras import babelfish
+from hgvs.sequencevariant import SequenceVariant
 
 from dotty.config import settings
 
@@ -20,13 +22,45 @@ _logger = logging.getLogger(__name__)
 
 
 class Babelfish(babelfish.Babelfish):
-    """Custom Babelfish that also knows about GRCh37."""
+    """Custom Babelfish that also knows about GRCh37 and properly handles SNVs."""
 
     def __init__(self, hdp: Interface, assembly_name: str):
         super().__init__(hdp, assembly_name)
         for assembly_name in ("GRCh37", "GRCh38"):
             for sr in bioutils.assemblies.get_assembly(assembly_name)["sequences"]:
                 self.ac_to_chr_name_map[sr["refseq_ac"]] = sr["name"]
+
+    def hgvs_to_vcf(self, var_g: SequenceVariant) -> tuple[str, int, str, str, str]:
+        if var_g.type != "g":
+            raise RuntimeError("Expected g. variant, got {var_g}".format(var_g=var_g))
+
+        vleft = self.hn.normalize(var_g)
+
+        (start_i, end_i) = babelfish._as_interbase(vleft.posedit)
+
+        chrom = self.ac_to_chr_name_map[vleft.ac]
+
+        typ = vleft.posedit.edit.type
+
+        if typ == "dup":
+            start_i -= 1
+            alt = self.hdp.seqfetcher.fetch_seq(vleft.ac, start_i, end_i)
+            ref = alt[0]
+        elif typ == "inv":
+            ref = vleft.posedit.edit.ref
+            alt = reverse_complement(ref)
+        else:
+            alt = vleft.posedit.edit.alt or ""
+
+            if typ in ("del", "ins"):  # Left anchored
+                start_i -= 1
+                ref = self.hdp.seqfetcher.fetch_seq(vleft.ac, start_i, end_i)
+                alt = ref[0] + alt
+            else:
+                ref = vleft.posedit.edit.ref
+                if ref == alt:
+                    alt = "."
+        return chrom, start_i + 1, ref, alt, typ
 
 
 class Assembly(enum.Enum):

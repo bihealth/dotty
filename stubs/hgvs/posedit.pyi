@@ -1,2 +1,7 @@
+import typing
+
+
 class PosEdit:
-    pass
+    pos: int
+    edit: typing.Any
+    uncertain: bool
