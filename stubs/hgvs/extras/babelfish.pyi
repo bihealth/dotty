@@ -1,7 +1,7 @@
 from hgvs.dataproviders.interface import Interface
+from hgvs.normalizer import Normalizer
 from hgvs.posedit import PosEdit
 from hgvs.sequencevariant import SequenceVariant
-from hgvs.normalizer import Normalizer
 
 def _as_interbase(posedit: PosEdit) -> tuple[int, int]: ...
 
