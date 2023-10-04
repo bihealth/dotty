@@ -1,2 +1,3 @@
 class SequenceVariant:
-    pass
+    type: str
+    ac: str

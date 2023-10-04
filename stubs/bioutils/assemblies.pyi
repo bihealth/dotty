@@ -1,0 +1,3 @@
+import typing
+
+def get_assembly(name: str) -> typing.Any: ...
