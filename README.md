@@ -3,6 +3,30 @@
 
 # dotty - cdot-based position projection
 
+## What can it do?
+
+Run it the background, e.g., from `main` as
+
+```
+$ DATA_DIR=$PWD/data \
+    pipenv run uvicorn dotty.main:app --host 0.0.0.0 --port 8080 --reload
+```
+
+Then, resolve c./n./g. variants to SPDI-like variants
+
+```
+$ curl 'http://127.0.0.1:8080/api/v1/to-spdi?q=NM_000059.3:c.274G%3EA' 2>/dev/null | jq .
+{
+  "spdi": {
+    "assembly": "GRCh38",
+    "contig": "13",
+    "pos": 32319283,
+    "reference_deleted": "C",
+    "alternate_inserted": "A"
+  }
+}
+```
+
 ## Obtaining Data
 
 `datasets` is the NCBI `datasets` tool.
