@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 cdot = "*"
 fastapi = "*"
+hgvs = "*"
 
 [dev-packages]
 black = "*"
