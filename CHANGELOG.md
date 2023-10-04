@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.2](https://www.github.com/bihealth/dotty/compare/v0.1.1...v0.1.2) (2023-10-04)
+
+
+### Bug Fixes
+
+* left-alignment in to-spdi with custom Babelfish ([#7](https://www.github.com/bihealth/dotty/issues/7)) ([5e78db7](https://www.github.com/bihealth/dotty/commit/5e78db776dbbcaa6ea41e8fe20588431acfdbd63))
+
 ### [0.1.1](https://www.github.com/bihealth/dotty/compare/v0.1.0...v0.1.1) (2023-10-04)
 
 
