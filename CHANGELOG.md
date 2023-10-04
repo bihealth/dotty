@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.3](https://www.github.com/bihealth/dotty/compare/v0.1.2...v0.1.3) (2023-10-04)
+
+
+### Documentation
+
+* add usage note ([#9](https://www.github.com/bihealth/dotty/issues/9)) ([5f82241](https://www.github.com/bihealth/dotty/commit/5f822411625ba1ecd07601a2b812a405c8b46a33))
+
 ### [0.1.2](https://www.github.com/bihealth/dotty/compare/v0.1.1...v0.1.2) (2023-10-04)
 
 
