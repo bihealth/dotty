@@ -1,2 +1,4 @@
+from hgvs.dataproviders.seqfetcher import SeqFetcher
+
 class Interface:
-    pass
+    seqfetcher: SeqFetcher

@@ -2,6 +2,7 @@ import logging
 from contextlib import asynccontextmanager
 
 import bioutils.assemblies
+import hgvs.exceptions
 import pydantic
 from fastapi import FastAPI, HTTPException
 
@@ -65,7 +66,10 @@ class Result(pydantic.BaseModel):
 @app.get("/api/v1/to-spdi", response_model=Result)
 async def to_spdi(q: str, assembly: Assembly = Assembly.GRCH38) -> Result:
     """Resolve the given HGVS variant to SPDI representation."""
-    parsed_var = driver.parser.parse(q)
+    try:
+        parsed_var = driver.parser.parse(q)
+    except hgvs.exceptions.HGVSParseError:
+        raise HTTPException(status_code=400, detail="Invalid HGVS description")
 
     if parsed_var.type == "c":
         var_g = driver.assembly_mappers[assembly].c_to_g(parsed_var)

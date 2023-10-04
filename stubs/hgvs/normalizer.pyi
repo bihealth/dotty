@@ -1,2 +1,4 @@
+from hgvs.sequencevariant import SequenceVariant
+
 class Normalizer:
-    pass
+    def normalize(self, var: SequenceVariant) -> SequenceVariant: ...

@@ -1,2 +1,2 @@
 class SeqFetcher(object):
-    pass
+    def fetch_seq(self, seq: str, start: int, end: int) -> str: ...
