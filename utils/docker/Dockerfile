@@ -24,7 +24,10 @@ RUN apt-get clean autoclean && \
 FROM base AS deps
 
 RUN pip install pipenv
-RUN apt-get update && apt-get install -y --no-install-recommends gcc
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        gcc \
+        postgresql-server-dev-all
 
 COPY Pipfile .
 COPY Pipfile.lock .

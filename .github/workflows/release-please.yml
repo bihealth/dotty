@@ -14,5 +14,5 @@ jobs:
         id: release
         with:
           release-type: python
-          package-name: cada-prio
+          package-name: dotty
           token: ${{ secrets.BOT_TOKEN }}
