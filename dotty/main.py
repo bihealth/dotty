@@ -63,6 +63,34 @@ class Result(pydantic.BaseModel):
     spdi: Spdi
 
 
+class Transcript(pydantic.BaseModel):
+    """Transcript model."""
+
+    #: Transcript refseq ID.
+    transcript_id: str
+    #: Transcript version.
+    transcript_version: str
+    #: Gene hgnc ID.
+    gene_id: str
+    #: Gene name.
+    gene_name: str
+    #: Contig.
+    contig: str
+    #: CDS start.
+    cds_start: int
+    #: CDS end.
+    cds_end: int
+    #: Exons.
+    exons: list[dict[str, int]]
+
+
+class TranscriptResult(pydantic.BaseModel):
+    """The result of the query for searching for transcripts."""
+
+    #: The actual payload / list of transcripts.
+    transcripts: list[Transcript]
+
+
 @app.get("/api/v1/to-spdi", response_model=Result)
 async def to_spdi(q: str, assembly: Assembly = Assembly.GRCH38) -> Result:
     """Resolve the given HGVS variant to SPDI representation."""
@@ -93,3 +121,35 @@ async def to_spdi(q: str, assembly: Assembly = Assembly.GRCH38) -> Result:
             alternate_inserted=alternative,
         )
     )
+
+
+@app.get("/api/v1/find-transcripts", response_model=TranscriptResult)
+async def find_transcripts(
+    refseq_ids: str, assembly: Assembly = Assembly.GRCH38
+) -> TranscriptResult:
+    """Find transcripts for the given RefSeq ID in given Assembly."""
+    transcripts_result = []
+    transcripts_list = [
+        transcript
+        for transcript in driver.data_providers[assembly].transcripts.keys()
+        if transcript.split(".")[0] in refseq_ids.split(",")
+    ]
+
+    for transcript in transcripts_list:
+        transcript_info = driver.data_providers[assembly]._get_transcript(transcript)
+        transcripts_result.append(
+            Transcript(
+                transcript_id=transcript.split(".")[0],
+                transcript_version=transcript.split(".")[1],
+                gene_id="HGNC:" + transcript_info["hgnc"],
+                gene_name=transcript_info["gene_name"],
+                contig=transcript_info["genome_builds"][assembly.value]["contig"],
+                cds_start=transcript_info["genome_builds"][assembly.value]["cds_start"],
+                cds_end=transcript_info["genome_builds"][assembly.value]["cds_end"],
+                exons=[
+                    {"start": min(exon[0], exon[1]), "end": max(exon[0], exon[1])}
+                    for exon in transcript_info["genome_builds"][assembly.value]["exons"]
+                ],
+            )
+        )
+    return TranscriptResult(transcripts=transcripts_result)
