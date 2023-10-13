@@ -38,17 +38,17 @@ async def lifespan(app: FastAPI):  # pragma: no cover
     driver.load()
     _logger.info("driver loaded")
     for assembly in Assembly:
-        for transcript in driver.data_providers[assembly].transcripts.keys():
+        for transcript in driver.data_providers[assembly].transcripts.keys():  # type: ignore[attr-defined]
             if (
                 assembly.value
-                not in driver.data_providers[assembly]
+                not in driver.data_providers[assembly]  # type: ignore[attr-defined]
                 ._get_transcript(transcript)["genome_builds"]
                 .keys()
             ):
                 continue
-            hgnc_id = f"HGNC:{driver.data_providers[assembly]._get_transcript(transcript)['hgnc']}"
+            hgnc_id = f"HGNC:{driver.data_providers[assembly]._get_transcript(transcript)['hgnc']}"  # type: ignore[attr-defined]
             hgnc_to_transcripts.setdefault(hgnc_id, []).append(
-                driver.data_providers[assembly]._get_transcript(transcript)
+                driver.data_providers[assembly]._get_transcript(transcript)  # type: ignore[attr-defined]
             )
         assembly_to_hgnc_to_transcripts[assembly] = hgnc_to_transcripts
     _logger.info("map built")
