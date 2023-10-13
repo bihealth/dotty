@@ -1,4 +1,5 @@
 import logging
+import typing
 from contextlib import asynccontextmanager
 
 import bioutils.assemblies
@@ -15,6 +16,10 @@ _logger = logging.getLogger(__name__)
 
 #: The global Driver instance.
 driver: Driver = None  # type: ignore[assignment]
+#: Map from HGNC ID to transcripts.
+hgnc_to_transcripts: dict[str, list[typing.Any]] = {}
+#: Map from Assembly to map from hgnc_id to transcripts.
+assembly_to_hgnc_to_transcripts: dict[Assembly, dict[str, list[typing.Any]]] = {}
 
 #: Contig names per assembly.
 contig_names: dict[Assembly, set[str]] = {
@@ -32,6 +37,21 @@ async def lifespan(app: FastAPI):  # pragma: no cover
     driver = Driver(cdot_dir=settings.DATA_DIR)
     driver.load()
     _logger.info("driver loaded")
+    for assembly in Assembly:
+        for transcript in driver.data_providers[assembly].transcripts.keys():
+            if (
+                assembly.value
+                not in driver.data_providers[assembly]
+                ._get_transcript(transcript)["genome_builds"]
+                .keys()
+            ):
+                continue
+            hgnc_id = f"HGNC:{driver.data_providers[assembly]._get_transcript(transcript)['hgnc']}"
+            hgnc_to_transcripts.setdefault(hgnc_id, []).append(
+                driver.data_providers[assembly]._get_transcript(transcript)
+            )
+        assembly_to_hgnc_to_transcripts[assembly] = hgnc_to_transcripts
+    _logger.info("map built")
     yield
 
 
@@ -124,32 +144,35 @@ async def to_spdi(q: str, assembly: Assembly = Assembly.GRCH38) -> Result:
 
 
 @app.get("/api/v1/find-transcripts", response_model=TranscriptResult)
-async def find_transcripts(
-    refseq_ids: str, assembly: Assembly = Assembly.GRCH38
-) -> TranscriptResult:
-    """Find transcripts for the given RefSeq ID in given Assembly."""
-    transcripts_result = []
-    transcripts_list = [
-        transcript
-        for transcript in driver.data_providers[assembly].transcripts.keys()
-        if transcript.split(".")[0] in refseq_ids.split(",")
-    ]
+async def find_transcripts(hgnc_id: str, assembly: Assembly = Assembly.GRCH38) -> TranscriptResult:
+    """Find transcripts for the given HGNC ID."""
+    result = []
+    transctipts = assembly_to_hgnc_to_transcripts[assembly].get(hgnc_id, [])
+    if not transctipts:
+        raise HTTPException(status_code=404, detail="No transcripts found")
+    else:
+        for t in transctipts:
+            if (
+                t["genome_builds"].get(assembly.value, None) is None
+                or t["genome_builds"][assembly.value].get("cds_start", None) is None
+                or t["genome_builds"][assembly.value].get("cds_end", None) is None
+                or t["genome_builds"][assembly.value].get("exons", None) is None
+            ):
+                continue
 
-    for transcript in transcripts_list:
-        transcript_info = driver.data_providers[assembly]._get_transcript(transcript)
-        transcripts_result.append(
-            Transcript(
-                transcript_id=transcript.split(".")[0],
-                transcript_version=transcript.split(".")[1],
-                gene_id="HGNC:" + transcript_info["hgnc"],
-                gene_name=transcript_info["gene_name"],
-                contig=transcript_info["genome_builds"][assembly.value]["contig"],
-                cds_start=transcript_info["genome_builds"][assembly.value]["cds_start"],
-                cds_end=transcript_info["genome_builds"][assembly.value]["cds_end"],
-                exons=[
-                    {"start": min(exon[0], exon[1]), "end": max(exon[0], exon[1])}
-                    for exon in transcript_info["genome_builds"][assembly.value]["exons"]
-                ],
+            result.append(
+                Transcript(
+                    transcript_id=t["id"].split(".")[0],
+                    transcript_version=t["id"].split(".")[1],
+                    gene_id=f"HGNC:{t['hgnc']}",
+                    gene_name=t["gene_name"],
+                    contig=t["genome_builds"][assembly.value]["contig"],
+                    cds_start=t["genome_builds"][assembly.value]["cds_start"],
+                    cds_end=t["genome_builds"][assembly.value]["cds_end"],
+                    exons=[
+                        {"start": exon[0], "end": exon[1]}
+                        for exon in t["genome_builds"][assembly.value]["exons"]
+                    ],
+                )
             )
-        )
-    return TranscriptResult(transcripts=transcripts_result)
+        return TranscriptResult(transcripts=result)
