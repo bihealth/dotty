@@ -38,17 +38,17 @@ async def lifespan(app: FastAPI):  # pragma: no cover
     driver.load()
     _logger.info("driver loaded")
     for assembly in Assembly:
-        for transcript in driver.data_providers[assembly].transcripts.keys():  # type: ignore[attr-defined]
+        for transcript in driver.data_providers[assembly].transcripts.keys():
             if (
                 assembly.value
-                not in driver.data_providers[assembly]  # type: ignore[attr-defined]
+                not in driver.data_providers[assembly]
                 ._get_transcript(transcript)["genome_builds"]
                 .keys()
             ):
                 continue
-            hgnc_id = f"HGNC:{driver.data_providers[assembly]._get_transcript(transcript)['hgnc']}"  # type: ignore[attr-defined]
+            hgnc_id = f"HGNC:{driver.data_providers[assembly]._get_transcript(transcript)['hgnc']}"
             hgnc_to_transcripts.setdefault(hgnc_id, []).append(
-                driver.data_providers[assembly]._get_transcript(transcript)  # type: ignore[attr-defined]
+                driver.data_providers[assembly]._get_transcript(transcript)
             )
         assembly_to_hgnc_to_transcripts[assembly] = hgnc_to_transcripts
     _logger.info("map built")
@@ -83,25 +83,84 @@ class Result(pydantic.BaseModel):
     spdi: Spdi
 
 
-class Transcript(pydantic.BaseModel):
-    """Transcript model."""
+class ExonAlignment(pydantic.BaseModel):
+    """Alignment of an exon to an assembly."""
 
-    #: Transcript refseq ID.
-    transcript_id: str
-    #: Transcript version.
-    transcript_version: str
-    #: Gene hgnc ID.
-    gene_id: str
-    #: Gene name.
-    gene_name: str
-    #: Contig.
+    #: Exon start in reference.
+    ref_start: int
+    #: Exon end in reference.
+    ref_end: int
+    #: Exon number.
+    exon_no: int
+    #: Exon start in transcript.
+    tx_start: int
+    #: Exon end in transcript.
+    tx_end: int
+    #: The gapped alignment description.
+    alignment: str | None
+
+    @staticmethod
+    def _from_list(lst: list[typing.Any]) -> "ExonAlignment":
+        """Create an ``ExonAlignment`` from a list."""
+        return ExonAlignment(
+            ref_start=lst[0],
+            ref_end=lst[1],
+            exon_no=lst[2],
+            tx_start=lst[3],
+            tx_end=lst[4],
+            alignment=lst[5],
+        )
+
+
+class TanscriptAlignment(pydantic.BaseModel):
+    """Alignment of a `Transcript` to an assembly."""
+
+    #: Assembly of alignment.
+    assembly: str
+    #: Alignment contig.
     contig: str
     #: CDS start.
     cds_start: int
     #: CDS end.
     cds_end: int
-    #: Exons.
-    exons: list[dict[str, int]]
+    #: Exons, first two entries are start/end positions on the chromosome.
+    exons: list[ExonAlignment]
+
+    @staticmethod
+    def _from_dict(assembly, dct: dict[str, typing.Any]) -> "TanscriptAlignment":
+        """Create a ``TanscriptAlignment`` from a dictionary."""
+        return TanscriptAlignment(
+            assembly=assembly,
+            contig=dct["contig"],
+            cds_start=dct["cds_start"],
+            cds_end=dct["cds_end"],
+            exons=[ExonAlignment._from_list(lst) for lst in dct["exons"]],
+        )
+
+
+class Transcript(pydantic.BaseModel):
+    """Transcript model."""
+
+    #: Transcript ID.
+    id: str
+    #: Gene HGNC ID.
+    hgnc_id: str
+    #: Gene HGNC symbol.
+    hgnc_symbol: str
+    #: Alignments of the transcripts.
+    alignments: list[TanscriptAlignment]
+
+    @staticmethod
+    def _from_dict(assembly: str, dct: dict[str, typing.Any]) -> "Transcript":
+        """Create a ``Transcript`` from a dictionary."""
+        return Transcript(
+            id=dct["id"],
+            hgnc_id=f"HGNC:{dct['hgnc']}",
+            hgnc_symbol=dct["gene_name"],
+            alignments=[TanscriptAlignment._from_dict(assembly, dct["genome_builds"][assembly])]
+            if assembly in dct["genome_builds"]
+            else [],
+        )
 
 
 class TranscriptResult(pydantic.BaseModel):
@@ -153,26 +212,12 @@ async def find_transcripts(hgnc_id: str, assembly: Assembly = Assembly.GRCH38) -
     else:
         for t in transctipts:
             if (
-                t["genome_builds"].get(assembly.value, None) is None
-                or t["genome_builds"][assembly.value].get("cds_start", None) is None
-                or t["genome_builds"][assembly.value].get("cds_end", None) is None
-                or t["genome_builds"][assembly.value].get("exons", None) is None
+                assembly.value not in t["genome_builds"]
+                or "cds_start" not in t["genome_builds"][assembly.value]
+                or "cds_end" not in t["genome_builds"][assembly.value]
+                or "exons" not in t["genome_builds"][assembly.value]
             ):
                 continue
 
-            result.append(
-                Transcript(
-                    transcript_id=t["id"].split(".")[0],
-                    transcript_version=t["id"].split(".")[1],
-                    gene_id=f"HGNC:{t['hgnc']}",
-                    gene_name=t["gene_name"],
-                    contig=t["genome_builds"][assembly.value]["contig"],
-                    cds_start=t["genome_builds"][assembly.value]["cds_start"],
-                    cds_end=t["genome_builds"][assembly.value]["cds_end"],
-                    exons=[
-                        {"start": exon[0], "end": exon[1]}
-                        for exon in t["genome_builds"][assembly.value]["exons"]
-                    ],
-                )
-            )
+            result.append(Transcript._from_dict(assembly.value, t))
         return TranscriptResult(transcripts=result)

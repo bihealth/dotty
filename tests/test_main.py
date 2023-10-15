@@ -4,6 +4,7 @@ from unittest.mock import Mock
 
 from _pytest.monkeypatch import MonkeyPatch
 from fastapi.testclient import TestClient
+from pytest_snapshot.plugin import Snapshot
 
 from dotty import main as dotty_main
 from dotty.core import Assembly
@@ -134,7 +135,9 @@ def test_to_spdi_g_38(test_client: TestClient, monkeypatch: MonkeyPatch):
     assert response.json() == expected
 
 
-def test_find_transctipts_grch37(test_client: TestClient, monkeypatch: MonkeyPatch):
+def test_find_transcripts_grch37(
+    test_client: TestClient, monkeypatch: MonkeyPatch, snapshot: Snapshot
+):
     monkeypatch.setattr(dotty_main, "driver", _setup_mock_driver("g", "NC_000017.11"))
     monkeypatch.setattr(
         dotty_main, "assembly_to_hgnc_to_transcripts", _setup_mock_transcript_data()
@@ -142,39 +145,12 @@ def test_find_transctipts_grch37(test_client: TestClient, monkeypatch: MonkeyPat
     response = test_client.get("/api/v1/find-transcripts?hgnc_id=HGNC:1100&assembly=GRCh37")
     assert response.status_code == 200
 
-    expected: dict[str, list] = {"transcripts": []}
-
-    # Load the transcript data from the test data
-    transcript_info_grch37 = json.load(open("tests/data/cdot-0.2.21.refseq.grch37.json", "r"))
-    for transcript in transcript_info_grch37["transcripts"].values():
-        if transcript["hgnc"] == "1100":
-            if (
-                transcript["genome_builds"].get("GRCh37", None) is None
-                or transcript["genome_builds"]["GRCh37"].get("cds_start", None) is None
-                or transcript["genome_builds"]["GRCh37"].get("cds_end", None) is None
-                or transcript["genome_builds"]["GRCh37"].get("exons", None) is None
-            ):
-                continue
-            expected["transcripts"].append(
-                {
-                    "transcript_id": transcript["id"].split(".")[0],
-                    "transcript_version": transcript["id"].split(".")[1],
-                    "gene_id": f"HGNC:{transcript['hgnc']}",
-                    "gene_name": transcript["gene_name"],
-                    "contig": transcript["genome_builds"]["GRCh37"]["contig"],
-                    "cds_start": transcript["genome_builds"]["GRCh37"]["cds_start"],
-                    "cds_end": transcript["genome_builds"]["GRCh37"]["cds_end"],
-                    "exons": [
-                        {"start": exon[0], "end": exon[1]}
-                        for exon in transcript["genome_builds"]["GRCh37"]["exons"]
-                    ],
-                }
-            )
-
-    assert response.json() == expected
+    snapshot.assert_match(json.dumps(response.json(), indent=2), "response.json")
 
 
-def test_find_transcripts_grch38(test_client: TestClient, monkeypatch: MonkeyPatch):
+def test_find_transcripts_grch38(
+    test_client: TestClient, monkeypatch: MonkeyPatch, snapshot: Snapshot
+):
     monkeypatch.setattr(dotty_main, "driver", _setup_mock_driver("g", "NC_000017.11"))
     monkeypatch.setattr(
         dotty_main, "assembly_to_hgnc_to_transcripts", _setup_mock_transcript_data()
@@ -182,33 +158,4 @@ def test_find_transcripts_grch38(test_client: TestClient, monkeypatch: MonkeyPat
     response = test_client.get("/api/v1/find-transcripts?hgnc_id=HGNC:1100&assembly=GRCh38")
     assert response.status_code == 200
 
-    expected: dict[str, list] = {"transcripts": []}
-
-    # Load the transcript data from the test data
-    transcript_info_grch37 = json.load(open("tests/data/cdot-0.2.21.refseq.grch38.json", "r"))
-    for transcript in transcript_info_grch37["transcripts"].values():
-        if transcript["hgnc"] == "1100":
-            if (
-                transcript["genome_builds"].get("GRCh38", None) is None
-                or transcript["genome_builds"]["GRCh38"].get("cds_start", None) is None
-                or transcript["genome_builds"]["GRCh38"].get("cds_end", None) is None
-                or transcript["genome_builds"]["GRCh38"].get("exons", None) is None
-            ):
-                continue
-            expected["transcripts"].append(
-                {
-                    "transcript_id": transcript["id"].split(".")[0],
-                    "transcript_version": transcript["id"].split(".")[1],
-                    "gene_id": f"HGNC:{transcript['hgnc']}",
-                    "gene_name": transcript["gene_name"],
-                    "contig": transcript["genome_builds"]["GRCh38"]["contig"],
-                    "cds_start": transcript["genome_builds"]["GRCh38"]["cds_start"],
-                    "cds_end": transcript["genome_builds"]["GRCh38"]["cds_end"],
-                    "exons": [
-                        {"start": exon[0], "end": exon[1]}
-                        for exon in transcript["genome_builds"]["GRCh38"]["exons"]
-                    ],
-                }
-            )
-
-    assert response.json() == expected
+    snapshot.assert_match(json.dumps(response.json(), indent=2), "response.json")

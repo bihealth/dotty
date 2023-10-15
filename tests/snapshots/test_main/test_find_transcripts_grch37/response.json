@@ -1,0 +1,1771 @@
+{
+  "transcripts": [
+    {
+      "id": "NM_007294.3",
+      "hgnc_id": "HGNC:1100",
+      "hgnc_symbol": "BRCA1",
+      "alignments": [
+        {
+          "assembly": "GRCh37",
+          "contig": "NC_000017.10",
+          "cds_start": 41197694,
+          "cds_end": 41276113,
+          "exons": [
+            {
+              "ref_start": 41196311,
+              "ref_end": 41197819,
+              "exon_no": 22,
+              "tx_start": 5700,
+              "tx_end": 7207,
+              "alignment": null
+            },
+            {
+              "ref_start": 41199659,
+              "ref_end": 41199720,
+              "exon_no": 21,
+              "tx_start": 5639,
+              "tx_end": 5699,
+              "alignment": null
+            },
+            {
+              "ref_start": 41201137,
+              "ref_end": 41201211,
+              "exon_no": 20,
+              "tx_start": 5565,
+              "tx_end": 5638,
+              "alignment": null
+            },
+            {
+              "ref_start": 41203079,
+              "ref_end": 41203134,
+              "exon_no": 19,
+              "tx_start": 5510,
+              "tx_end": 5564,
+              "alignment": null
+            },
+            {
+              "ref_start": 41209068,
+              "ref_end": 41209152,
+              "exon_no": 18,
+              "tx_start": 5426,
+              "tx_end": 5509,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215349,
+              "ref_end": 41215390,
+              "exon_no": 17,
+              "tx_start": 5385,
+              "tx_end": 5425,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215890,
+              "ref_end": 41215968,
+              "exon_no": 16,
+              "tx_start": 5307,
+              "tx_end": 5384,
+              "alignment": null
+            },
+            {
+              "ref_start": 41219624,
+              "ref_end": 41219712,
+              "exon_no": 15,
+              "tx_start": 5219,
+              "tx_end": 5306,
+              "alignment": null
+            },
+            {
+              "ref_start": 41222944,
+              "ref_end": 41223255,
+              "exon_no": 14,
+              "tx_start": 4908,
+              "tx_end": 5218,
+              "alignment": null
+            },
+            {
+              "ref_start": 41226347,
+              "ref_end": 41226538,
+              "exon_no": 13,
+              "tx_start": 4717,
+              "tx_end": 4907,
+              "alignment": null
+            },
+            {
+              "ref_start": 41228504,
+              "ref_end": 41228631,
+              "exon_no": 12,
+              "tx_start": 4590,
+              "tx_end": 4716,
+              "alignment": null
+            },
+            {
+              "ref_start": 41234420,
+              "ref_end": 41234592,
+              "exon_no": 11,
+              "tx_start": 4418,
+              "tx_end": 4589,
+              "alignment": null
+            },
+            {
+              "ref_start": 41242960,
+              "ref_end": 41243049,
+              "exon_no": 10,
+              "tx_start": 4329,
+              "tx_end": 4417,
+              "alignment": null
+            },
+            {
+              "ref_start": 41243451,
+              "ref_end": 41246877,
+              "exon_no": 9,
+              "tx_start": 903,
+              "tx_end": 4328,
+              "alignment": null
+            },
+            {
+              "ref_start": 41247862,
+              "ref_end": 41247939,
+              "exon_no": 8,
+              "tx_start": 826,
+              "tx_end": 902,
+              "alignment": null
+            },
+            {
+              "ref_start": 41249260,
+              "ref_end": 41249306,
+              "exon_no": 7,
+              "tx_start": 780,
+              "tx_end": 825,
+              "alignment": null
+            },
+            {
+              "ref_start": 41251791,
+              "ref_end": 41251897,
+              "exon_no": 6,
+              "tx_start": 674,
+              "tx_end": 779,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256138,
+              "ref_end": 41256278,
+              "exon_no": 5,
+              "tx_start": 534,
+              "tx_end": 673,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256884,
+              "ref_end": 41256973,
+              "exon_no": 4,
+              "tx_start": 445,
+              "tx_end": 533,
+              "alignment": null
+            },
+            {
+              "ref_start": 41258472,
+              "ref_end": 41258550,
+              "exon_no": 3,
+              "tx_start": 367,
+              "tx_end": 444,
+              "alignment": null
+            },
+            {
+              "ref_start": 41267742,
+              "ref_end": 41267796,
+              "exon_no": 2,
+              "tx_start": 313,
+              "tx_end": 366,
+              "alignment": null
+            },
+            {
+              "ref_start": 41276033,
+              "ref_end": 41276132,
+              "exon_no": 1,
+              "tx_start": 214,
+              "tx_end": 312,
+              "alignment": null
+            },
+            {
+              "ref_start": 41277287,
+              "ref_end": 41277500,
+              "exon_no": 0,
+              "tx_start": 1,
+              "tx_end": 213,
+              "alignment": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NM_007294.4",
+      "hgnc_id": "HGNC:1100",
+      "hgnc_symbol": "BRCA1",
+      "alignments": [
+        {
+          "assembly": "GRCh37",
+          "contig": "NC_000017.10",
+          "cds_start": 41197694,
+          "cds_end": 41276113,
+          "exons": [
+            {
+              "ref_start": 41196311,
+              "ref_end": 41197819,
+              "exon_no": 22,
+              "tx_start": 5581,
+              "tx_end": 7088,
+              "alignment": null
+            },
+            {
+              "ref_start": 41199659,
+              "ref_end": 41199720,
+              "exon_no": 21,
+              "tx_start": 5520,
+              "tx_end": 5580,
+              "alignment": null
+            },
+            {
+              "ref_start": 41201137,
+              "ref_end": 41201211,
+              "exon_no": 20,
+              "tx_start": 5446,
+              "tx_end": 5519,
+              "alignment": null
+            },
+            {
+              "ref_start": 41203079,
+              "ref_end": 41203134,
+              "exon_no": 19,
+              "tx_start": 5391,
+              "tx_end": 5445,
+              "alignment": null
+            },
+            {
+              "ref_start": 41209068,
+              "ref_end": 41209152,
+              "exon_no": 18,
+              "tx_start": 5307,
+              "tx_end": 5390,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215349,
+              "ref_end": 41215390,
+              "exon_no": 17,
+              "tx_start": 5266,
+              "tx_end": 5306,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215890,
+              "ref_end": 41215968,
+              "exon_no": 16,
+              "tx_start": 5188,
+              "tx_end": 5265,
+              "alignment": null
+            },
+            {
+              "ref_start": 41219624,
+              "ref_end": 41219712,
+              "exon_no": 15,
+              "tx_start": 5100,
+              "tx_end": 5187,
+              "alignment": null
+            },
+            {
+              "ref_start": 41222944,
+              "ref_end": 41223255,
+              "exon_no": 14,
+              "tx_start": 4789,
+              "tx_end": 5099,
+              "alignment": null
+            },
+            {
+              "ref_start": 41226347,
+              "ref_end": 41226538,
+              "exon_no": 13,
+              "tx_start": 4598,
+              "tx_end": 4788,
+              "alignment": null
+            },
+            {
+              "ref_start": 41228504,
+              "ref_end": 41228631,
+              "exon_no": 12,
+              "tx_start": 4471,
+              "tx_end": 4597,
+              "alignment": null
+            },
+            {
+              "ref_start": 41234420,
+              "ref_end": 41234592,
+              "exon_no": 11,
+              "tx_start": 4299,
+              "tx_end": 4470,
+              "alignment": null
+            },
+            {
+              "ref_start": 41242960,
+              "ref_end": 41243049,
+              "exon_no": 10,
+              "tx_start": 4210,
+              "tx_end": 4298,
+              "alignment": null
+            },
+            {
+              "ref_start": 41243451,
+              "ref_end": 41246877,
+              "exon_no": 9,
+              "tx_start": 784,
+              "tx_end": 4209,
+              "alignment": null
+            },
+            {
+              "ref_start": 41247862,
+              "ref_end": 41247939,
+              "exon_no": 8,
+              "tx_start": 707,
+              "tx_end": 783,
+              "alignment": null
+            },
+            {
+              "ref_start": 41249260,
+              "ref_end": 41249306,
+              "exon_no": 7,
+              "tx_start": 661,
+              "tx_end": 706,
+              "alignment": null
+            },
+            {
+              "ref_start": 41251791,
+              "ref_end": 41251897,
+              "exon_no": 6,
+              "tx_start": 555,
+              "tx_end": 660,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256138,
+              "ref_end": 41256278,
+              "exon_no": 5,
+              "tx_start": 415,
+              "tx_end": 554,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256884,
+              "ref_end": 41256973,
+              "exon_no": 4,
+              "tx_start": 326,
+              "tx_end": 414,
+              "alignment": null
+            },
+            {
+              "ref_start": 41258472,
+              "ref_end": 41258550,
+              "exon_no": 3,
+              "tx_start": 248,
+              "tx_end": 325,
+              "alignment": null
+            },
+            {
+              "ref_start": 41267742,
+              "ref_end": 41267796,
+              "exon_no": 2,
+              "tx_start": 194,
+              "tx_end": 247,
+              "alignment": null
+            },
+            {
+              "ref_start": 41276033,
+              "ref_end": 41276132,
+              "exon_no": 1,
+              "tx_start": 95,
+              "tx_end": 193,
+              "alignment": null
+            },
+            {
+              "ref_start": 41277287,
+              "ref_end": 41277381,
+              "exon_no": 0,
+              "tx_start": 1,
+              "tx_end": 94,
+              "alignment": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NM_007297.3",
+      "hgnc_id": "HGNC:1100",
+      "hgnc_symbol": "BRCA1",
+      "alignments": [
+        {
+          "assembly": "GRCh37",
+          "contig": "NC_000017.10",
+          "cds_start": 41197694,
+          "cds_end": 41258543,
+          "exons": [
+            {
+              "ref_start": 41196311,
+              "ref_end": 41197819,
+              "exon_no": 21,
+              "tx_start": 5608,
+              "tx_end": 7115,
+              "alignment": null
+            },
+            {
+              "ref_start": 41199659,
+              "ref_end": 41199720,
+              "exon_no": 20,
+              "tx_start": 5547,
+              "tx_end": 5607,
+              "alignment": null
+            },
+            {
+              "ref_start": 41201137,
+              "ref_end": 41201211,
+              "exon_no": 19,
+              "tx_start": 5473,
+              "tx_end": 5546,
+              "alignment": null
+            },
+            {
+              "ref_start": 41203079,
+              "ref_end": 41203134,
+              "exon_no": 18,
+              "tx_start": 5418,
+              "tx_end": 5472,
+              "alignment": null
+            },
+            {
+              "ref_start": 41209068,
+              "ref_end": 41209152,
+              "exon_no": 17,
+              "tx_start": 5334,
+              "tx_end": 5417,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215349,
+              "ref_end": 41215390,
+              "exon_no": 16,
+              "tx_start": 5293,
+              "tx_end": 5333,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215890,
+              "ref_end": 41215968,
+              "exon_no": 15,
+              "tx_start": 5215,
+              "tx_end": 5292,
+              "alignment": null
+            },
+            {
+              "ref_start": 41219624,
+              "ref_end": 41219712,
+              "exon_no": 14,
+              "tx_start": 5127,
+              "tx_end": 5214,
+              "alignment": null
+            },
+            {
+              "ref_start": 41222944,
+              "ref_end": 41223255,
+              "exon_no": 13,
+              "tx_start": 4816,
+              "tx_end": 5126,
+              "alignment": null
+            },
+            {
+              "ref_start": 41226347,
+              "ref_end": 41226538,
+              "exon_no": 12,
+              "tx_start": 4625,
+              "tx_end": 4815,
+              "alignment": null
+            },
+            {
+              "ref_start": 41228504,
+              "ref_end": 41228631,
+              "exon_no": 11,
+              "tx_start": 4498,
+              "tx_end": 4624,
+              "alignment": null
+            },
+            {
+              "ref_start": 41234420,
+              "ref_end": 41234592,
+              "exon_no": 10,
+              "tx_start": 4326,
+              "tx_end": 4497,
+              "alignment": null
+            },
+            {
+              "ref_start": 41242960,
+              "ref_end": 41243049,
+              "exon_no": 9,
+              "tx_start": 4237,
+              "tx_end": 4325,
+              "alignment": null
+            },
+            {
+              "ref_start": 41243451,
+              "ref_end": 41246877,
+              "exon_no": 8,
+              "tx_start": 811,
+              "tx_end": 4236,
+              "alignment": null
+            },
+            {
+              "ref_start": 41247862,
+              "ref_end": 41247939,
+              "exon_no": 7,
+              "tx_start": 734,
+              "tx_end": 810,
+              "alignment": null
+            },
+            {
+              "ref_start": 41249260,
+              "ref_end": 41249306,
+              "exon_no": 6,
+              "tx_start": 688,
+              "tx_end": 733,
+              "alignment": null
+            },
+            {
+              "ref_start": 41251791,
+              "ref_end": 41251897,
+              "exon_no": 5,
+              "tx_start": 582,
+              "tx_end": 687,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256138,
+              "ref_end": 41256278,
+              "exon_no": 4,
+              "tx_start": 442,
+              "tx_end": 581,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256884,
+              "ref_end": 41256973,
+              "exon_no": 3,
+              "tx_start": 353,
+              "tx_end": 441,
+              "alignment": null
+            },
+            {
+              "ref_start": 41258472,
+              "ref_end": 41258550,
+              "exon_no": 2,
+              "tx_start": 275,
+              "tx_end": 352,
+              "alignment": null
+            },
+            {
+              "ref_start": 41276033,
+              "ref_end": 41276132,
+              "exon_no": 1,
+              "tx_start": 176,
+              "tx_end": 274,
+              "alignment": null
+            },
+            {
+              "ref_start": 41277293,
+              "ref_end": 41277468,
+              "exon_no": 0,
+              "tx_start": 1,
+              "tx_end": 175,
+              "alignment": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NM_007297.4",
+      "hgnc_id": "HGNC:1100",
+      "hgnc_symbol": "BRCA1",
+      "alignments": [
+        {
+          "assembly": "GRCh37",
+          "contig": "NC_000017.10",
+          "cds_start": 41197694,
+          "cds_end": 41258543,
+          "exons": [
+            {
+              "ref_start": 41196311,
+              "ref_end": 41197819,
+              "exon_no": 21,
+              "tx_start": 5521,
+              "tx_end": 7028,
+              "alignment": null
+            },
+            {
+              "ref_start": 41199659,
+              "ref_end": 41199720,
+              "exon_no": 20,
+              "tx_start": 5460,
+              "tx_end": 5520,
+              "alignment": null
+            },
+            {
+              "ref_start": 41201137,
+              "ref_end": 41201211,
+              "exon_no": 19,
+              "tx_start": 5386,
+              "tx_end": 5459,
+              "alignment": null
+            },
+            {
+              "ref_start": 41203079,
+              "ref_end": 41203134,
+              "exon_no": 18,
+              "tx_start": 5331,
+              "tx_end": 5385,
+              "alignment": null
+            },
+            {
+              "ref_start": 41209068,
+              "ref_end": 41209152,
+              "exon_no": 17,
+              "tx_start": 5247,
+              "tx_end": 5330,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215349,
+              "ref_end": 41215390,
+              "exon_no": 16,
+              "tx_start": 5206,
+              "tx_end": 5246,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215890,
+              "ref_end": 41215968,
+              "exon_no": 15,
+              "tx_start": 5128,
+              "tx_end": 5205,
+              "alignment": null
+            },
+            {
+              "ref_start": 41219624,
+              "ref_end": 41219712,
+              "exon_no": 14,
+              "tx_start": 5040,
+              "tx_end": 5127,
+              "alignment": null
+            },
+            {
+              "ref_start": 41222944,
+              "ref_end": 41223255,
+              "exon_no": 13,
+              "tx_start": 4729,
+              "tx_end": 5039,
+              "alignment": null
+            },
+            {
+              "ref_start": 41226347,
+              "ref_end": 41226538,
+              "exon_no": 12,
+              "tx_start": 4538,
+              "tx_end": 4728,
+              "alignment": null
+            },
+            {
+              "ref_start": 41228504,
+              "ref_end": 41228631,
+              "exon_no": 11,
+              "tx_start": 4411,
+              "tx_end": 4537,
+              "alignment": null
+            },
+            {
+              "ref_start": 41234420,
+              "ref_end": 41234592,
+              "exon_no": 10,
+              "tx_start": 4239,
+              "tx_end": 4410,
+              "alignment": null
+            },
+            {
+              "ref_start": 41242960,
+              "ref_end": 41243049,
+              "exon_no": 9,
+              "tx_start": 4150,
+              "tx_end": 4238,
+              "alignment": null
+            },
+            {
+              "ref_start": 41243451,
+              "ref_end": 41246877,
+              "exon_no": 8,
+              "tx_start": 724,
+              "tx_end": 4149,
+              "alignment": null
+            },
+            {
+              "ref_start": 41247862,
+              "ref_end": 41247939,
+              "exon_no": 7,
+              "tx_start": 647,
+              "tx_end": 723,
+              "alignment": null
+            },
+            {
+              "ref_start": 41249260,
+              "ref_end": 41249306,
+              "exon_no": 6,
+              "tx_start": 601,
+              "tx_end": 646,
+              "alignment": null
+            },
+            {
+              "ref_start": 41251791,
+              "ref_end": 41251897,
+              "exon_no": 5,
+              "tx_start": 495,
+              "tx_end": 600,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256138,
+              "ref_end": 41256278,
+              "exon_no": 4,
+              "tx_start": 355,
+              "tx_end": 494,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256884,
+              "ref_end": 41256973,
+              "exon_no": 3,
+              "tx_start": 266,
+              "tx_end": 354,
+              "alignment": null
+            },
+            {
+              "ref_start": 41258472,
+              "ref_end": 41258550,
+              "exon_no": 2,
+              "tx_start": 188,
+              "tx_end": 265,
+              "alignment": null
+            },
+            {
+              "ref_start": 41276033,
+              "ref_end": 41276132,
+              "exon_no": 1,
+              "tx_start": 89,
+              "tx_end": 187,
+              "alignment": null
+            },
+            {
+              "ref_start": 41277293,
+              "ref_end": 41277381,
+              "exon_no": 0,
+              "tx_start": 1,
+              "tx_end": 88,
+              "alignment": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NM_007298.3",
+      "hgnc_id": "HGNC:1100",
+      "hgnc_symbol": "BRCA1",
+      "alignments": [
+        {
+          "assembly": "GRCh37",
+          "contig": "NC_000017.10",
+          "cds_start": 41197694,
+          "cds_end": 41276113,
+          "exons": [
+            {
+              "ref_start": 41196311,
+              "ref_end": 41197819,
+              "exon_no": 21,
+              "tx_start": 2175,
+              "tx_end": 3682,
+              "alignment": null
+            },
+            {
+              "ref_start": 41199659,
+              "ref_end": 41199720,
+              "exon_no": 20,
+              "tx_start": 2114,
+              "tx_end": 2174,
+              "alignment": null
+            },
+            {
+              "ref_start": 41201137,
+              "ref_end": 41201211,
+              "exon_no": 19,
+              "tx_start": 2040,
+              "tx_end": 2113,
+              "alignment": null
+            },
+            {
+              "ref_start": 41203079,
+              "ref_end": 41203134,
+              "exon_no": 18,
+              "tx_start": 1985,
+              "tx_end": 2039,
+              "alignment": null
+            },
+            {
+              "ref_start": 41209068,
+              "ref_end": 41209152,
+              "exon_no": 17,
+              "tx_start": 1901,
+              "tx_end": 1984,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215349,
+              "ref_end": 41215390,
+              "exon_no": 16,
+              "tx_start": 1860,
+              "tx_end": 1900,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215890,
+              "ref_end": 41215968,
+              "exon_no": 15,
+              "tx_start": 1782,
+              "tx_end": 1859,
+              "alignment": null
+            },
+            {
+              "ref_start": 41219624,
+              "ref_end": 41219712,
+              "exon_no": 14,
+              "tx_start": 1694,
+              "tx_end": 1781,
+              "alignment": null
+            },
+            {
+              "ref_start": 41222944,
+              "ref_end": 41223255,
+              "exon_no": 13,
+              "tx_start": 1383,
+              "tx_end": 1693,
+              "alignment": null
+            },
+            {
+              "ref_start": 41226347,
+              "ref_end": 41226538,
+              "exon_no": 12,
+              "tx_start": 1192,
+              "tx_end": 1382,
+              "alignment": null
+            },
+            {
+              "ref_start": 41228504,
+              "ref_end": 41228628,
+              "exon_no": 11,
+              "tx_start": 1068,
+              "tx_end": 1191,
+              "alignment": null
+            },
+            {
+              "ref_start": 41234420,
+              "ref_end": 41234592,
+              "exon_no": 10,
+              "tx_start": 896,
+              "tx_end": 1067,
+              "alignment": null
+            },
+            {
+              "ref_start": 41242960,
+              "ref_end": 41243049,
+              "exon_no": 9,
+              "tx_start": 807,
+              "tx_end": 895,
+              "alignment": null
+            },
+            {
+              "ref_start": 41246760,
+              "ref_end": 41246877,
+              "exon_no": 8,
+              "tx_start": 690,
+              "tx_end": 806,
+              "alignment": null
+            },
+            {
+              "ref_start": 41247862,
+              "ref_end": 41247939,
+              "exon_no": 7,
+              "tx_start": 613,
+              "tx_end": 689,
+              "alignment": null
+            },
+            {
+              "ref_start": 41249260,
+              "ref_end": 41249306,
+              "exon_no": 6,
+              "tx_start": 567,
+              "tx_end": 612,
+              "alignment": null
+            },
+            {
+              "ref_start": 41251791,
+              "ref_end": 41251897,
+              "exon_no": 5,
+              "tx_start": 461,
+              "tx_end": 566,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256138,
+              "ref_end": 41256278,
+              "exon_no": 4,
+              "tx_start": 321,
+              "tx_end": 460,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256884,
+              "ref_end": 41256973,
+              "exon_no": 3,
+              "tx_start": 232,
+              "tx_end": 320,
+              "alignment": null
+            },
+            {
+              "ref_start": 41258472,
+              "ref_end": 41258550,
+              "exon_no": 2,
+              "tx_start": 154,
+              "tx_end": 231,
+              "alignment": null
+            },
+            {
+              "ref_start": 41267742,
+              "ref_end": 41267796,
+              "exon_no": 1,
+              "tx_start": 100,
+              "tx_end": 153,
+              "alignment": null
+            },
+            {
+              "ref_start": 41276033,
+              "ref_end": 41276132,
+              "exon_no": 0,
+              "tx_start": 1,
+              "tx_end": 99,
+              "alignment": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NM_007299.3",
+      "hgnc_id": "HGNC:1100",
+      "hgnc_symbol": "BRCA1",
+      "alignments": [
+        {
+          "assembly": "GRCh37",
+          "contig": "NC_000017.10",
+          "cds_start": 41197800,
+          "cds_end": 41276113,
+          "exons": [
+            {
+              "ref_start": 41196311,
+              "ref_end": 41197819,
+              "exon_no": 21,
+              "tx_start": 2276,
+              "tx_end": 3783,
+              "alignment": null
+            },
+            {
+              "ref_start": 41199659,
+              "ref_end": 41199720,
+              "exon_no": 20,
+              "tx_start": 2215,
+              "tx_end": 2275,
+              "alignment": null
+            },
+            {
+              "ref_start": 41203079,
+              "ref_end": 41203134,
+              "exon_no": 19,
+              "tx_start": 2160,
+              "tx_end": 2214,
+              "alignment": null
+            },
+            {
+              "ref_start": 41209068,
+              "ref_end": 41209152,
+              "exon_no": 18,
+              "tx_start": 2076,
+              "tx_end": 2159,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215349,
+              "ref_end": 41215390,
+              "exon_no": 17,
+              "tx_start": 2035,
+              "tx_end": 2075,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215890,
+              "ref_end": 41215968,
+              "exon_no": 16,
+              "tx_start": 1957,
+              "tx_end": 2034,
+              "alignment": null
+            },
+            {
+              "ref_start": 41219624,
+              "ref_end": 41219712,
+              "exon_no": 15,
+              "tx_start": 1869,
+              "tx_end": 1956,
+              "alignment": null
+            },
+            {
+              "ref_start": 41222944,
+              "ref_end": 41223255,
+              "exon_no": 14,
+              "tx_start": 1558,
+              "tx_end": 1868,
+              "alignment": null
+            },
+            {
+              "ref_start": 41226347,
+              "ref_end": 41226538,
+              "exon_no": 13,
+              "tx_start": 1367,
+              "tx_end": 1557,
+              "alignment": null
+            },
+            {
+              "ref_start": 41228504,
+              "ref_end": 41228628,
+              "exon_no": 12,
+              "tx_start": 1243,
+              "tx_end": 1366,
+              "alignment": null
+            },
+            {
+              "ref_start": 41234420,
+              "ref_end": 41234592,
+              "exon_no": 11,
+              "tx_start": 1071,
+              "tx_end": 1242,
+              "alignment": null
+            },
+            {
+              "ref_start": 41242960,
+              "ref_end": 41243049,
+              "exon_no": 10,
+              "tx_start": 982,
+              "tx_end": 1070,
+              "alignment": null
+            },
+            {
+              "ref_start": 41246760,
+              "ref_end": 41246877,
+              "exon_no": 9,
+              "tx_start": 865,
+              "tx_end": 981,
+              "alignment": null
+            },
+            {
+              "ref_start": 41247862,
+              "ref_end": 41247939,
+              "exon_no": 8,
+              "tx_start": 788,
+              "tx_end": 864,
+              "alignment": null
+            },
+            {
+              "ref_start": 41249260,
+              "ref_end": 41249306,
+              "exon_no": 7,
+              "tx_start": 742,
+              "tx_end": 787,
+              "alignment": null
+            },
+            {
+              "ref_start": 41251791,
+              "ref_end": 41251897,
+              "exon_no": 6,
+              "tx_start": 636,
+              "tx_end": 741,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256138,
+              "ref_end": 41256278,
+              "exon_no": 5,
+              "tx_start": 496,
+              "tx_end": 635,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256884,
+              "ref_end": 41256973,
+              "exon_no": 4,
+              "tx_start": 407,
+              "tx_end": 495,
+              "alignment": null
+            },
+            {
+              "ref_start": 41258472,
+              "ref_end": 41258550,
+              "exon_no": 3,
+              "tx_start": 329,
+              "tx_end": 406,
+              "alignment": null
+            },
+            {
+              "ref_start": 41267742,
+              "ref_end": 41267796,
+              "exon_no": 2,
+              "tx_start": 275,
+              "tx_end": 328,
+              "alignment": null
+            },
+            {
+              "ref_start": 41276033,
+              "ref_end": 41276132,
+              "exon_no": 1,
+              "tx_start": 176,
+              "tx_end": 274,
+              "alignment": null
+            },
+            {
+              "ref_start": 41277293,
+              "ref_end": 41277468,
+              "exon_no": 0,
+              "tx_start": 1,
+              "tx_end": 175,
+              "alignment": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NM_007299.4",
+      "hgnc_id": "HGNC:1100",
+      "hgnc_symbol": "BRCA1",
+      "alignments": [
+        {
+          "assembly": "GRCh37",
+          "contig": "NC_000017.10",
+          "cds_start": 41197800,
+          "cds_end": 41276113,
+          "exons": [
+            {
+              "ref_start": 41196311,
+              "ref_end": 41197819,
+              "exon_no": 21,
+              "tx_start": 2189,
+              "tx_end": 3696,
+              "alignment": null
+            },
+            {
+              "ref_start": 41199659,
+              "ref_end": 41199720,
+              "exon_no": 20,
+              "tx_start": 2128,
+              "tx_end": 2188,
+              "alignment": null
+            },
+            {
+              "ref_start": 41203079,
+              "ref_end": 41203134,
+              "exon_no": 19,
+              "tx_start": 2073,
+              "tx_end": 2127,
+              "alignment": null
+            },
+            {
+              "ref_start": 41209068,
+              "ref_end": 41209152,
+              "exon_no": 18,
+              "tx_start": 1989,
+              "tx_end": 2072,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215349,
+              "ref_end": 41215390,
+              "exon_no": 17,
+              "tx_start": 1948,
+              "tx_end": 1988,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215890,
+              "ref_end": 41215968,
+              "exon_no": 16,
+              "tx_start": 1870,
+              "tx_end": 1947,
+              "alignment": null
+            },
+            {
+              "ref_start": 41219624,
+              "ref_end": 41219712,
+              "exon_no": 15,
+              "tx_start": 1782,
+              "tx_end": 1869,
+              "alignment": null
+            },
+            {
+              "ref_start": 41222944,
+              "ref_end": 41223255,
+              "exon_no": 14,
+              "tx_start": 1471,
+              "tx_end": 1781,
+              "alignment": null
+            },
+            {
+              "ref_start": 41226347,
+              "ref_end": 41226538,
+              "exon_no": 13,
+              "tx_start": 1280,
+              "tx_end": 1470,
+              "alignment": null
+            },
+            {
+              "ref_start": 41228504,
+              "ref_end": 41228628,
+              "exon_no": 12,
+              "tx_start": 1156,
+              "tx_end": 1279,
+              "alignment": null
+            },
+            {
+              "ref_start": 41234420,
+              "ref_end": 41234592,
+              "exon_no": 11,
+              "tx_start": 984,
+              "tx_end": 1155,
+              "alignment": null
+            },
+            {
+              "ref_start": 41242960,
+              "ref_end": 41243049,
+              "exon_no": 10,
+              "tx_start": 895,
+              "tx_end": 983,
+              "alignment": null
+            },
+            {
+              "ref_start": 41246760,
+              "ref_end": 41246877,
+              "exon_no": 9,
+              "tx_start": 778,
+              "tx_end": 894,
+              "alignment": null
+            },
+            {
+              "ref_start": 41247862,
+              "ref_end": 41247939,
+              "exon_no": 8,
+              "tx_start": 701,
+              "tx_end": 777,
+              "alignment": null
+            },
+            {
+              "ref_start": 41249260,
+              "ref_end": 41249306,
+              "exon_no": 7,
+              "tx_start": 655,
+              "tx_end": 700,
+              "alignment": null
+            },
+            {
+              "ref_start": 41251791,
+              "ref_end": 41251897,
+              "exon_no": 6,
+              "tx_start": 549,
+              "tx_end": 654,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256138,
+              "ref_end": 41256278,
+              "exon_no": 5,
+              "tx_start": 409,
+              "tx_end": 548,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256884,
+              "ref_end": 41256973,
+              "exon_no": 4,
+              "tx_start": 320,
+              "tx_end": 408,
+              "alignment": null
+            },
+            {
+              "ref_start": 41258472,
+              "ref_end": 41258550,
+              "exon_no": 3,
+              "tx_start": 242,
+              "tx_end": 319,
+              "alignment": null
+            },
+            {
+              "ref_start": 41267742,
+              "ref_end": 41267796,
+              "exon_no": 2,
+              "tx_start": 188,
+              "tx_end": 241,
+              "alignment": null
+            },
+            {
+              "ref_start": 41276033,
+              "ref_end": 41276132,
+              "exon_no": 1,
+              "tx_start": 89,
+              "tx_end": 187,
+              "alignment": null
+            },
+            {
+              "ref_start": 41277293,
+              "ref_end": 41277381,
+              "exon_no": 0,
+              "tx_start": 1,
+              "tx_end": 88,
+              "alignment": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NM_007300.3",
+      "hgnc_id": "HGNC:1100",
+      "hgnc_symbol": "BRCA1",
+      "alignments": [
+        {
+          "assembly": "GRCh37",
+          "contig": "NC_000017.10",
+          "cds_start": 41197694,
+          "cds_end": 41276113,
+          "exons": [
+            {
+              "ref_start": 41196311,
+              "ref_end": 41197819,
+              "exon_no": 23,
+              "tx_start": 5763,
+              "tx_end": 7270,
+              "alignment": null
+            },
+            {
+              "ref_start": 41199659,
+              "ref_end": 41199720,
+              "exon_no": 22,
+              "tx_start": 5702,
+              "tx_end": 5762,
+              "alignment": null
+            },
+            {
+              "ref_start": 41201137,
+              "ref_end": 41201211,
+              "exon_no": 21,
+              "tx_start": 5628,
+              "tx_end": 5701,
+              "alignment": null
+            },
+            {
+              "ref_start": 41203079,
+              "ref_end": 41203134,
+              "exon_no": 20,
+              "tx_start": 5573,
+              "tx_end": 5627,
+              "alignment": null
+            },
+            {
+              "ref_start": 41209068,
+              "ref_end": 41209152,
+              "exon_no": 19,
+              "tx_start": 5489,
+              "tx_end": 5572,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215349,
+              "ref_end": 41215390,
+              "exon_no": 18,
+              "tx_start": 5448,
+              "tx_end": 5488,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215890,
+              "ref_end": 41215968,
+              "exon_no": 17,
+              "tx_start": 5370,
+              "tx_end": 5447,
+              "alignment": null
+            },
+            {
+              "ref_start": 41219624,
+              "ref_end": 41219712,
+              "exon_no": 16,
+              "tx_start": 5282,
+              "tx_end": 5369,
+              "alignment": null
+            },
+            {
+              "ref_start": 41222944,
+              "ref_end": 41223255,
+              "exon_no": 15,
+              "tx_start": 4971,
+              "tx_end": 5281,
+              "alignment": null
+            },
+            {
+              "ref_start": 41226347,
+              "ref_end": 41226538,
+              "exon_no": 14,
+              "tx_start": 4780,
+              "tx_end": 4970,
+              "alignment": null
+            },
+            {
+              "ref_start": 41228504,
+              "ref_end": 41228628,
+              "exon_no": 13,
+              "tx_start": 4656,
+              "tx_end": 4779,
+              "alignment": null
+            },
+            {
+              "ref_start": 41231350,
+              "ref_end": 41231416,
+              "exon_no": 12,
+              "tx_start": 4590,
+              "tx_end": 4655,
+              "alignment": null
+            },
+            {
+              "ref_start": 41234420,
+              "ref_end": 41234592,
+              "exon_no": 11,
+              "tx_start": 4418,
+              "tx_end": 4589,
+              "alignment": null
+            },
+            {
+              "ref_start": 41242960,
+              "ref_end": 41243049,
+              "exon_no": 10,
+              "tx_start": 4329,
+              "tx_end": 4417,
+              "alignment": null
+            },
+            {
+              "ref_start": 41243451,
+              "ref_end": 41246877,
+              "exon_no": 9,
+              "tx_start": 903,
+              "tx_end": 4328,
+              "alignment": null
+            },
+            {
+              "ref_start": 41247862,
+              "ref_end": 41247939,
+              "exon_no": 8,
+              "tx_start": 826,
+              "tx_end": 902,
+              "alignment": null
+            },
+            {
+              "ref_start": 41249260,
+              "ref_end": 41249306,
+              "exon_no": 7,
+              "tx_start": 780,
+              "tx_end": 825,
+              "alignment": null
+            },
+            {
+              "ref_start": 41251791,
+              "ref_end": 41251897,
+              "exon_no": 6,
+              "tx_start": 674,
+              "tx_end": 779,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256138,
+              "ref_end": 41256278,
+              "exon_no": 5,
+              "tx_start": 534,
+              "tx_end": 673,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256884,
+              "ref_end": 41256973,
+              "exon_no": 4,
+              "tx_start": 445,
+              "tx_end": 533,
+              "alignment": null
+            },
+            {
+              "ref_start": 41258472,
+              "ref_end": 41258550,
+              "exon_no": 3,
+              "tx_start": 367,
+              "tx_end": 444,
+              "alignment": null
+            },
+            {
+              "ref_start": 41267742,
+              "ref_end": 41267796,
+              "exon_no": 2,
+              "tx_start": 313,
+              "tx_end": 366,
+              "alignment": null
+            },
+            {
+              "ref_start": 41276033,
+              "ref_end": 41276132,
+              "exon_no": 1,
+              "tx_start": 214,
+              "tx_end": 312,
+              "alignment": null
+            },
+            {
+              "ref_start": 41277287,
+              "ref_end": 41277500,
+              "exon_no": 0,
+              "tx_start": 1,
+              "tx_end": 213,
+              "alignment": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NM_007300.4",
+      "hgnc_id": "HGNC:1100",
+      "hgnc_symbol": "BRCA1",
+      "alignments": [
+        {
+          "assembly": "GRCh37",
+          "contig": "NC_000017.10",
+          "cds_start": 41197694,
+          "cds_end": 41276113,
+          "exons": [
+            {
+              "ref_start": 41196311,
+              "ref_end": 41197819,
+              "exon_no": 23,
+              "tx_start": 5644,
+              "tx_end": 7151,
+              "alignment": null
+            },
+            {
+              "ref_start": 41199659,
+              "ref_end": 41199720,
+              "exon_no": 22,
+              "tx_start": 5583,
+              "tx_end": 5643,
+              "alignment": null
+            },
+            {
+              "ref_start": 41201137,
+              "ref_end": 41201211,
+              "exon_no": 21,
+              "tx_start": 5509,
+              "tx_end": 5582,
+              "alignment": null
+            },
+            {
+              "ref_start": 41203079,
+              "ref_end": 41203134,
+              "exon_no": 20,
+              "tx_start": 5454,
+              "tx_end": 5508,
+              "alignment": null
+            },
+            {
+              "ref_start": 41209068,
+              "ref_end": 41209152,
+              "exon_no": 19,
+              "tx_start": 5370,
+              "tx_end": 5453,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215349,
+              "ref_end": 41215390,
+              "exon_no": 18,
+              "tx_start": 5329,
+              "tx_end": 5369,
+              "alignment": null
+            },
+            {
+              "ref_start": 41215890,
+              "ref_end": 41215968,
+              "exon_no": 17,
+              "tx_start": 5251,
+              "tx_end": 5328,
+              "alignment": null
+            },
+            {
+              "ref_start": 41219624,
+              "ref_end": 41219712,
+              "exon_no": 16,
+              "tx_start": 5163,
+              "tx_end": 5250,
+              "alignment": null
+            },
+            {
+              "ref_start": 41222944,
+              "ref_end": 41223255,
+              "exon_no": 15,
+              "tx_start": 4852,
+              "tx_end": 5162,
+              "alignment": null
+            },
+            {
+              "ref_start": 41226347,
+              "ref_end": 41226538,
+              "exon_no": 14,
+              "tx_start": 4661,
+              "tx_end": 4851,
+              "alignment": null
+            },
+            {
+              "ref_start": 41228504,
+              "ref_end": 41228628,
+              "exon_no": 13,
+              "tx_start": 4537,
+              "tx_end": 4660,
+              "alignment": null
+            },
+            {
+              "ref_start": 41231350,
+              "ref_end": 41231416,
+              "exon_no": 12,
+              "tx_start": 4471,
+              "tx_end": 4536,
+              "alignment": null
+            },
+            {
+              "ref_start": 41234420,
+              "ref_end": 41234592,
+              "exon_no": 11,
+              "tx_start": 4299,
+              "tx_end": 4470,
+              "alignment": null
+            },
+            {
+              "ref_start": 41242960,
+              "ref_end": 41243049,
+              "exon_no": 10,
+              "tx_start": 4210,
+              "tx_end": 4298,
+              "alignment": null
+            },
+            {
+              "ref_start": 41243451,
+              "ref_end": 41246877,
+              "exon_no": 9,
+              "tx_start": 784,
+              "tx_end": 4209,
+              "alignment": null
+            },
+            {
+              "ref_start": 41247862,
+              "ref_end": 41247939,
+              "exon_no": 8,
+              "tx_start": 707,
+              "tx_end": 783,
+              "alignment": null
+            },
+            {
+              "ref_start": 41249260,
+              "ref_end": 41249306,
+              "exon_no": 7,
+              "tx_start": 661,
+              "tx_end": 706,
+              "alignment": null
+            },
+            {
+              "ref_start": 41251791,
+              "ref_end": 41251897,
+              "exon_no": 6,
+              "tx_start": 555,
+              "tx_end": 660,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256138,
+              "ref_end": 41256278,
+              "exon_no": 5,
+              "tx_start": 415,
+              "tx_end": 554,
+              "alignment": null
+            },
+            {
+              "ref_start": 41256884,
+              "ref_end": 41256973,
+              "exon_no": 4,
+              "tx_start": 326,
+              "tx_end": 414,
+              "alignment": null
+            },
+            {
+              "ref_start": 41258472,
+              "ref_end": 41258550,
+              "exon_no": 3,
+              "tx_start": 248,
+              "tx_end": 325,
+              "alignment": null
+            },
+            {
+              "ref_start": 41267742,
+              "ref_end": 41267796,
+              "exon_no": 2,
+              "tx_start": 194,
+              "tx_end": 247,
+              "alignment": null
+            },
+            {
+              "ref_start": 41276033,
+              "ref_end": 41276132,
+              "exon_no": 1,
+              "tx_start": 95,
+              "tx_end": 193,
+              "alignment": null
+            },
+            {
+              "ref_start": 41277287,
+              "ref_end": 41277381,
+              "exon_no": 0,
+              "tx_start": 1,
+              "tx_end": 94,
+              "alignment": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

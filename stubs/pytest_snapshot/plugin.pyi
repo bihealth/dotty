@@ -1,0 +1,6 @@
+from pathlib import Path
+from typing import Union
+
+class Snapshot:
+    def assert_match(self, value: Union[str, bytes], snapshot_name: Union[str, Path]): ...
+    def assert_match_dir(self, dir_dict: dict, snapshot_dir_name: Union[str, Path]): ...
