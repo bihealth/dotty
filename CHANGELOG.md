@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.2.0](https://www.github.com/bihealth/dotty/compare/v0.1.2...v0.2.0) (2023-10-15)
+
+
+### Features
+
+* Endpoint for retrieving all transcripts for a given HGNC ID ([#11](https://www.github.com/bihealth/dotty/issues/11)) ([#12](https://www.github.com/bihealth/dotty/issues/12)) ([2b425bf](https://www.github.com/bihealth/dotty/commit/2b425bfacffb918643999b84379d2893159f91eb))
+
+
+### Documentation
+
+* add usage note ([#9](https://www.github.com/bihealth/dotty/issues/9)) ([5f82241](https://www.github.com/bihealth/dotty/commit/5f822411625ba1ecd07601a2b812a405c8b46a33))
+
 ### [0.1.2](https://www.github.com/bihealth/dotty/compare/v0.1.1...v0.1.2) (2023-10-04)
 
 
