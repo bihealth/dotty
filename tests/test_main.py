@@ -1,7 +1,10 @@
+import json
+import typing
 from unittest.mock import Mock
 
 from _pytest.monkeypatch import MonkeyPatch
 from fastapi.testclient import TestClient
+from pytest_snapshot.plugin import Snapshot
 
 from dotty import main as dotty_main
 from dotty.core import Assembly
@@ -39,6 +42,33 @@ def _setup_mock_driver(var_type: str, parsed_var_ac: str) -> Mock:
     mock_driver.parser.parse.return_value = parsed_var
 
     return mock_driver
+
+
+def _setup_mock_transcript_data() -> typing.Dict[Assembly, typing.Any]:
+    hgnc_to_transcripts_grch37: dict[str, list[typing.Any]] = {}
+    assembly_to_hgnc_to_transcripts_grch37: dict[Assembly, dict[str, list[typing.Any]]] = {}
+
+    transcript_info_grch37 = json.load(open("tests/data/cdot-0.2.21.refseq.grch37.json", "r"))
+    for transcript in transcript_info_grch37["transcripts"].values():
+        hgnc_id = f"HGNC:{transcript['hgnc']}"
+        hgnc_to_transcripts_grch37.setdefault(hgnc_id, []).append(transcript)
+    assembly_to_hgnc_to_transcripts_grch37[Assembly.GRCH37] = hgnc_to_transcripts_grch37
+
+    hgnc_to_transcripts_grch38: dict[str, list[typing.Any]] = {}
+    assembly_to_hgnc_to_transcripts_grch38: dict[Assembly, dict[str, list[typing.Any]]] = {}
+
+    transcript_info_grch38 = json.load(open("tests/data/cdot-0.2.21.refseq.grch38.json", "r"))
+    for transcript in transcript_info_grch38["transcripts"].values():
+        hgnc_id = f"HGNC:{transcript['hgnc']}"
+        hgnc_to_transcripts_grch38.setdefault(hgnc_id, []).append(transcript)
+    assembly_to_hgnc_to_transcripts_grch38[Assembly.GRCH38] = hgnc_to_transcripts_grch38
+
+    assembly_to_hgnc_to_transcripts = {
+        **assembly_to_hgnc_to_transcripts_grch37,
+        **assembly_to_hgnc_to_transcripts_grch38,
+    }
+
+    return assembly_to_hgnc_to_transcripts
 
 
 def test_to_spdi_c(test_client: TestClient, monkeypatch: MonkeyPatch):
@@ -103,3 +133,29 @@ def test_to_spdi_g_38(test_client: TestClient, monkeypatch: MonkeyPatch):
         }
     }
     assert response.json() == expected
+
+
+def test_find_transcripts_grch37(
+    test_client: TestClient, monkeypatch: MonkeyPatch, snapshot: Snapshot
+):
+    monkeypatch.setattr(dotty_main, "driver", _setup_mock_driver("g", "NC_000017.11"))
+    monkeypatch.setattr(
+        dotty_main, "assembly_to_hgnc_to_transcripts", _setup_mock_transcript_data()
+    )
+    response = test_client.get("/api/v1/find-transcripts?hgnc_id=HGNC:1100&assembly=GRCh37")
+    assert response.status_code == 200
+
+    snapshot.assert_match(json.dumps(response.json(), indent=2), "response.json")
+
+
+def test_find_transcripts_grch38(
+    test_client: TestClient, monkeypatch: MonkeyPatch, snapshot: Snapshot
+):
+    monkeypatch.setattr(dotty_main, "driver", _setup_mock_driver("g", "NC_000017.11"))
+    monkeypatch.setattr(
+        dotty_main, "assembly_to_hgnc_to_transcripts", _setup_mock_transcript_data()
+    )
+    response = test_client.get("/api/v1/find-transcripts?hgnc_id=HGNC:1100&assembly=GRCh38")
+    assert response.status_code == 200
+
+    snapshot.assert_match(json.dumps(response.json(), indent=2), "response.json")
