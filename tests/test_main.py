@@ -2,6 +2,7 @@ import json
 import typing
 from unittest.mock import Mock
 
+import hgvs.exceptions
 from _pytest.monkeypatch import MonkeyPatch
 from fastapi.testclient import TestClient
 from pytest_snapshot.plugin import Snapshot
@@ -144,6 +145,22 @@ def test_to_spdi_g_38(test_client: TestClient, monkeypatch: MonkeyPatch):
             "reference_deleted": "A",
             "assembly": "GRCh38",
         },
+    }
+    assert response.json() == expected
+
+
+def test_to_spdi_invalid(test_client: TestClient, monkeypatch: MonkeyPatch):
+    mock_driver = Mock()
+    mock_driver.parser = Mock()
+    mock_driver.parser.parse = Mock()
+    mock_driver.parser.parse.side_effect = hgvs.exceptions.HGVSParseError
+    monkeypatch.setattr(dotty_main, "driver", mock_driver)
+
+    response = test_client.get("/api/v1/to-spdi?q=BRCA1")
+    assert response.status_code == 200
+    expected = {
+        "success": False,
+        "value": None,
     }
     assert response.json() == expected
 
