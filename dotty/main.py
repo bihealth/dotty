@@ -31,7 +31,7 @@ contig_names: dict[Assembly, set[str]] = {
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(app: FastAPI):   # pragma: no cover
     global driver
     _ = app
     driver = Driver(cdot_dir=settings.DATA_DIR)
