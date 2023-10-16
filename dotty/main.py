@@ -31,7 +31,7 @@ contig_names: dict[Assembly, set[str]] = {
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):  # pragma: no cover
+async def lifespan(app: FastAPI):
     global driver
     _ = app
     driver = Driver(cdot_dir=settings.DATA_DIR)
@@ -44,7 +44,23 @@ async def lifespan(app: FastAPI):  # pragma: no cover
                 not in driver.data_providers[assembly]
                 ._get_transcript(transcript)["genome_builds"]
                 .keys()
+                or "hgnc" not in driver.data_providers[assembly]._get_transcript(transcript)
+                or "cds_start"
+                not in driver.data_providers[assembly]._get_transcript(transcript)["genome_builds"][
+                    assembly.value
+                ]
+                or "cds_end"
+                not in driver.data_providers[assembly]._get_transcript(transcript)["genome_builds"][
+                    assembly.value
+                ]
+                or "exons"
+                not in driver.data_providers[assembly]._get_transcript(transcript)["genome_builds"][
+                    assembly.value
+                ]
             ):
+                _logger.warning(
+                    f"Skipping transcript {transcript} as it does not have all required data"
+                )
                 continue
             hgnc_id = f"HGNC:{driver.data_providers[assembly]._get_transcript(transcript)['hgnc']}"
             hgnc_to_transcripts.setdefault(hgnc_id, []).append(

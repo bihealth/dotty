@@ -71,6 +71,15 @@ def _setup_mock_transcript_data() -> typing.Dict[Assembly, typing.Any]:
     return assembly_to_hgnc_to_transcripts
 
 
+def test_lifespan(monkeypatch: MonkeyPatch):
+    monkeypatch.setattr(dotty_main, "driver", _setup_mock_driver("c", "NC_000017.10"))
+    dotty_main.lifespan(dotty_main.app)
+    assert dotty_main.driver is not None
+    assert dotty_main.hgnc_to_transcripts is not None
+    assert dotty_main.assembly_to_hgnc_to_transcripts is not None
+    assert dotty_main.contig_names is not None
+
+
 def test_to_spdi_c(test_client: TestClient, monkeypatch: MonkeyPatch):
     monkeypatch.setattr(dotty_main, "driver", _setup_mock_driver("c", "NC_000017.10"))
     response = test_client.get("/api/v1/to-spdi?q=NM_000059.3:c.274G>A")
