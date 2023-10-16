@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.2.1](https://www.github.com/bihealth/dotty/compare/v0.2.0...v0.2.1) (2023-10-16)
+
+
+### Bug Fixes
+
+* Loading transcript mapping in lifespan ([#14](https://www.github.com/bihealth/dotty/issues/14)) ([#15](https://www.github.com/bihealth/dotty/issues/15)) ([62fdc32](https://www.github.com/bihealth/dotty/commit/62fdc32e8a412dcc87f1e7e1cb209cf5681dc24d))
+
 ## [0.2.0](https://www.github.com/bihealth/dotty/compare/v0.1.2...v0.2.0) (2023-10-15)
 
 
