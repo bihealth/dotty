@@ -43,20 +43,20 @@ async def lifespan(app: FastAPI):
                 assembly.value
                 not in driver.data_providers[assembly]
                 ._get_transcript(transcript)["genome_builds"]
-                .keys()
+                .keys()  # genome build is not in the transcript data
                 or "hgnc" not in driver.data_providers[assembly]._get_transcript(transcript)
                 or "cds_start"
-                not in driver.data_providers[assembly]._get_transcript(transcript)["genome_builds"][
-                    assembly.value
-                ]
+                not in driver.data_providers[assembly]
+                ._get_transcript(transcript)["genome_builds"][assembly.value]
+                .keys()
                 or "cds_end"
-                not in driver.data_providers[assembly]._get_transcript(transcript)["genome_builds"][
-                    assembly.value
-                ]
+                not in driver.data_providers[assembly]
+                ._get_transcript(transcript)["genome_builds"][assembly.value]
+                .keys()
                 or "exons"
-                not in driver.data_providers[assembly]._get_transcript(transcript)["genome_builds"][
-                    assembly.value
-                ]
+                not in driver.data_providers[assembly]
+                ._get_transcript(transcript)["genome_builds"][assembly.value]
+                .keys()
             ):
                 _logger.warning(
                     f"Skipping transcript {transcript} as it does not have all required data"
