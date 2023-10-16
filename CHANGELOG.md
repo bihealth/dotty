@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://www.github.com/bihealth/dotty/compare/v0.2.1...v0.3.0) (2023-10-16)
+
+
+### Features
+
+* Add status field to spdi response ([#17](https://www.github.com/bihealth/dotty/issues/17)) ([#18](https://www.github.com/bihealth/dotty/issues/18)) ([152c414](https://www.github.com/bihealth/dotty/commit/152c41482ecd2d3d7da3e09885e77d64360ec4b3))
+
 ### [0.2.1](https://www.github.com/bihealth/dotty/compare/v0.2.0...v0.2.1) (2023-10-16)
 
 
