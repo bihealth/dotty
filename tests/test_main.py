@@ -85,13 +85,14 @@ def test_to_spdi_c(test_client: TestClient, monkeypatch: MonkeyPatch):
     response = test_client.get("/api/v1/to-spdi?q=NM_000059.3:c.274G>A")
     assert response.status_code == 200
     expected = {
-        "spdi": {
+        "success": True,
+        "value": {
             "alternate_inserted": "C",
             "contig": "chr1",
             "pos": 100,
             "reference_deleted": "A",
             "assembly": "GRCh38",
-        }
+        },
     }
     assert response.json() == expected
 
@@ -101,13 +102,14 @@ def test_to_spdi_n(test_client: TestClient, monkeypatch: MonkeyPatch):
     response = test_client.get("/api/v1/to-spdi?q=NM_000059.3:n.274G>A")
     assert response.status_code == 200
     expected = {
-        "spdi": {
+        "success": True,
+        "value": {
             "alternate_inserted": "C",
             "contig": "chr1",
             "pos": 100,
             "reference_deleted": "A",
             "assembly": "GRCh38",
-        }
+        },
     }
     assert response.json() == expected
 
@@ -117,13 +119,14 @@ def test_to_spdi_g_37(test_client: TestClient, monkeypatch: MonkeyPatch):
     response = test_client.get("/api/v1/to-spdi?q=NC_000017.10:g.41197699T>C")
     assert response.status_code == 200
     expected = {
-        "spdi": {
+        "success": True,
+        "value": {
             "alternate_inserted": "C",
             "contig": "chr1",
             "pos": 100,
             "reference_deleted": "A",
             "assembly": "GRCh37",
-        }
+        },
     }
     assert response.json() == expected
 
@@ -133,13 +136,14 @@ def test_to_spdi_g_38(test_client: TestClient, monkeypatch: MonkeyPatch):
     response = test_client.get("/api/v1/to-spdi?q=NC_000017.11:g.43045682T>C")
     assert response.status_code == 200
     expected = {
-        "spdi": {
+        "success": True,
+        "value": {
             "alternate_inserted": "C",
             "contig": "chr1",
             "pos": 100,
             "reference_deleted": "A",
             "assembly": "GRCh38",
-        }
+        },
     }
     assert response.json() == expected
 

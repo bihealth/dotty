@@ -92,11 +92,13 @@ class Spdi(pydantic.BaseModel):
     alternate_inserted: str
 
 
-class Result(pydantic.BaseModel):
+class SpdiResult(pydantic.BaseModel):
     """The result of the query."""
 
+    #: The indicator if the query was successful.
+    success: bool
     #: The actual payload / SPDI representation of the variant.
-    spdi: Spdi
+    value: Spdi | None
 
 
 class ExonAlignment(pydantic.BaseModel):
@@ -186,13 +188,13 @@ class TranscriptResult(pydantic.BaseModel):
     transcripts: list[Transcript]
 
 
-@app.get("/api/v1/to-spdi", response_model=Result)
-async def to_spdi(q: str, assembly: Assembly = Assembly.GRCH38) -> Result:
+@app.get("/api/v1/to-spdi", response_model=SpdiResult)
+async def to_spdi(q: str, assembly: Assembly = Assembly.GRCH38) -> SpdiResult:
     """Resolve the given HGVS variant to SPDI representation."""
     try:
         parsed_var = driver.parser.parse(q)
     except hgvs.exceptions.HGVSParseError:
-        raise HTTPException(status_code=400, detail="Invalid HGVS description")
+        return SpdiResult(success=False, value=None)
 
     if parsed_var.type == "c":
         var_g = driver.assembly_mappers[assembly].c_to_g(parsed_var)
@@ -207,14 +209,15 @@ async def to_spdi(q: str, assembly: Assembly = Assembly.GRCH38) -> Result:
 
     contig, pos, reference, alternative, type_ = driver.babelfishes[assembly].hgvs_to_vcf(var_g)
 
-    return Result(
-        spdi=Spdi(
+    return SpdiResult(
+        success=True,
+        value=Spdi(
             assembly=assembly.value,
             contig=contig,
             pos=pos,
             reference_deleted=reference,
             alternate_inserted=alternative,
-        )
+        ),
     )
 
 
