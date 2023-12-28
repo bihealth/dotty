@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.3.1](https://www.github.com/bihealth/dotty/compare/v0.3.0...v0.3.1) (2023-12-28)
+
+
+### Bug Fixes
+
+* small improvements for robustness ([#43](https://www.github.com/bihealth/dotty/issues/43)) ([b159086](https://www.github.com/bihealth/dotty/commit/b1590864d90e87c194abd6aac62ff4c5cd710301))
+
 ## [0.3.0](https://www.github.com/bihealth/dotty/compare/v0.2.1...v0.3.0) (2023-10-16)
 
 
