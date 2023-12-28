@@ -21,6 +21,9 @@ class Settings(BaseSettings):
     #: Path to the directory with the cdot ``.json.gz`` files.
     DATA_DIR: str = "/data"
 
+    #: Version of the data to load.
+    DATA_VERSION: str = "0.2.21"
+
     #: Whether seqrepo is available for the reference, allows normalization
     #: of reference-level variants.
     HAVE_SEQREPO: bool = True

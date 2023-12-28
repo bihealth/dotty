@@ -78,12 +78,12 @@ class Driver:
     #: The file names to load for each assembly.
     assembly_file_names = {
         Assembly.GRCH37: (
-            "cdot-0.2.21.ensembl.grch37.json.gz",
-            "cdot-0.2.21.refseq.grch37.json.gz",
+            f"cdot-{settings.DATA_VERSION}.ensembl.grch37.json.gz",
+            f"cdot-{settings.DATA_VERSION}.refseq.grch37.json.gz",
         ),
         Assembly.GRCH38: (
-            "cdot-0.2.21.ensembl.grch38.json.gz",
-            "cdot-0.2.21.refseq.grch38.json.gz",
+            f"cdot-{settings.DATA_VERSION}.ensembl.grch38.json.gz",
+            f"cdot-{settings.DATA_VERSION}.refseq.grch38.json.gz",
         ),
     }
 

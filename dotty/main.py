@@ -10,7 +10,7 @@ from fastapi import FastAPI, HTTPException
 from dotty.config import settings
 from dotty.core import Assembly, Driver
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 _logger = logging.getLogger(__name__)
 
@@ -58,7 +58,7 @@ async def lifespan(app: FastAPI):  # pragma: no cover
                 ._get_transcript(transcript)["genome_builds"][assembly.value]
                 .keys()
             ):
-                _logger.warning(
+                _logger.debug(
                     f"Skipping transcript {transcript} as it does not have all required data"
                 )
                 continue
@@ -98,7 +98,9 @@ class SpdiResult(pydantic.BaseModel):
     #: The indicator if the query was successful.
     success: bool
     #: The actual payload / SPDI representation of the variant.
-    value: Spdi | None
+    value: Spdi | None = None
+    #: Any error message.
+    message: str | None = None
 
 
 class ExonAlignment(pydantic.BaseModel):
@@ -193,8 +195,8 @@ async def to_spdi(q: str, assembly: Assembly = Assembly.GRCH38) -> SpdiResult:
     """Resolve the given HGVS variant to SPDI representation."""
     try:
         parsed_var = driver.parser.parse(q)
-    except hgvs.exceptions.HGVSParseError:
-        return SpdiResult(success=False, value=None)
+    except hgvs.exceptions.HGVSParseError as e:
+        return SpdiResult(success=False, value=None, message=f"Problem parsing HGVS: {e}")
 
     if parsed_var.type == "c":
         var_g = driver.assembly_mappers[assembly].c_to_g(parsed_var)
