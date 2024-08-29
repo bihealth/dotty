@@ -1,10 +1,12 @@
 import logging
+import sys
 import typing
 from contextlib import asynccontextmanager
 
 import bioutils.assemblies
 import hgvs.exceptions
 import pydantic
+import yaml
 from fastapi import FastAPI, HTTPException
 
 from dotty.config import settings
@@ -177,9 +179,11 @@ class Transcript(pydantic.BaseModel):
             id=dct["id"],
             hgnc_id=f"HGNC:{dct['hgnc']}",
             hgnc_symbol=dct["gene_name"],
-            alignments=[TanscriptAlignment._from_dict(assembly, dct["genome_builds"][assembly])]
-            if assembly in dct["genome_builds"]
-            else [],
+            alignments=(
+                [TanscriptAlignment._from_dict(assembly, dct["genome_builds"][assembly])]
+                if assembly in dct["genome_builds"]
+                else []
+            ),
         )
 
 
@@ -242,3 +246,7 @@ async def find_transcripts(hgnc_id: str, assembly: Assembly = Assembly.GRCH38) -
 
             result.append(Transcript._from_dict(assembly.value, t))
         return TranscriptResult(transcripts=result)
+
+
+if __name__ == "__main__":
+    yaml.dump(app.openapi(), sys.stdout)
