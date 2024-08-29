@@ -177,9 +177,11 @@ class Transcript(pydantic.BaseModel):
             id=dct["id"],
             hgnc_id=f"HGNC:{dct['hgnc']}",
             hgnc_symbol=dct["gene_name"],
-            alignments=[TanscriptAlignment._from_dict(assembly, dct["genome_builds"][assembly])]
-            if assembly in dct["genome_builds"]
-            else [],
+            alignments=(
+                [TanscriptAlignment._from_dict(assembly, dct["genome_builds"][assembly])]
+                if assembly in dct["genome_builds"]
+                else []
+            ),
         )
 
 
