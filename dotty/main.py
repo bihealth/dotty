@@ -1,10 +1,12 @@
 import logging
+import sys
 import typing
 from contextlib import asynccontextmanager
 
 import bioutils.assemblies
 import hgvs.exceptions
 import pydantic
+import yaml
 from fastapi import FastAPI, HTTPException
 
 from dotty.config import settings
@@ -244,3 +246,7 @@ async def find_transcripts(hgnc_id: str, assembly: Assembly = Assembly.GRCH38) -
 
             result.append(Transcript._from_dict(assembly.value, t))
         return TranscriptResult(transcripts=result)
+
+
+if __name__ == "__main__":
+    yaml.dump(app.openapi(), sys.stdout)

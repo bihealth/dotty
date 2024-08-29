@@ -49,17 +49,8 @@ $ seqrepo --root-directory $PWD load --namespace ncbi --instance-name seqrepo nc
 $ rm -rf GRCh3?.zip ncbi_dataset
 ```
 
-## Terraform Project Management
+## Dump OpenAPI Schema
 
 ```
-$ export GITHUB_OWNER=bihealth
-$ export GITHUB_TOKEN=ghp_<thetoken>
-
-$ cd utils/terraform
-$ terraform init
-$ terraform import github_repository.dotty dotty
-$ terraform validate
-$ terraform fmt
-$ terraform plan
-$ terraform apply
+# python -m dotty.main > openapi.yaml
 ```
