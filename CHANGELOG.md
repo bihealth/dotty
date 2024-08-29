@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://www.github.com/bihealth/dotty/compare/v0.3.1...v0.4.0) (2024-08-29)
+
+
+### Features
+
+* dump OpenAPI YAML in `python -m dotty.main` ([#100](https://www.github.com/bihealth/dotty/issues/100)) ([#101](https://www.github.com/bihealth/dotty/issues/101)) ([55c343e](https://www.github.com/bihealth/dotty/commit/55c343e4953c37feef295a16a617083ebccf8f87))
+
 ### [0.3.1](https://www.github.com/bihealth/dotty/compare/v0.3.0...v0.3.1) (2023-12-28)
 
 
