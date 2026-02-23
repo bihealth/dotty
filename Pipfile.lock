@@ -233,12 +233,12 @@
         },
         "fastapi": {
             "hashes": [
-                "sha256:0cb3946557e792d731b26a42b04912f16367e3c3135ea8290f620e234f2b604f",
-                "sha256:bb1c1ef87d6086a7132d0ab60869d6f1ee67283b20fbf84ec0003bd335099509"
+                "sha256:3c487d5afce196fa8ea509ae1531e96ccd5cdd2fd6eae78b73e2c20fba706689",
+                "sha256:ef687847936d8a57ea6ea04cf9a85fe5f2c6ba64e22bfa721467094b69d48d92"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.9'",
-            "version": "==0.128.6"
+            "markers": "python_version >= '3.10'",
+            "version": "==0.132.0"
         },
         "h11": {
             "hashes": [
